@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Хомяк Тайкун</title>
+<title>Кот Тайкун</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap">
 <style>
@@ -72,6 +72,26 @@ h3{margin:16px 0 8px;font-size:17px;font-weight:900}
 .mc.up{background:var(--bg2)}
 .mc.ok{background:var(--bg2);opacity:.5}
 nav button{font-size:18px}nav button span{font-size:11px}
+.tail{transform-origin:140px 172px;animation:wag 1.8s ease-in-out infinite alternate}
+@keyframes wag{from{transform:rotate(-8deg)}to{transform:rotate(14deg)}}
+.bd{transform-origin:100px 190px;animation:br 3s ease-in-out infinite}
+@keyframes br{50%{transform:scaleY(1.03)}}
+.hd{transform-origin:100px 110px;animation:sw 4s ease-in-out infinite}
+@keyframes sw{0%,100%{transform:rotate(0)}30%{transform:rotate(-2deg)}70%{transform:rotate(2deg)}}
+.ey{transform-origin:100px 66px;animation:bl 4.5s infinite}
+@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+#ham.hit .hd{animation:nod .16s}
+@keyframes nod{50%{transform:translateY(4px) rotate(-3deg)}}
+#ham.hit .pw{animation:paw .16s}
+@keyframes paw{50%{transform:translateY(-12px)}}
+@media (prefers-reduced-motion:reduce){#ham svg *{animation:none!important}}
+.inp{width:100%;font:inherit;font-weight:700;padding:11px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--tx);margin:6px 0;user-select:text;-webkit-user-select:text}
+.arow{display:flex;gap:8px;margin-bottom:6px}
+.rn{position:fixed;top:-50px;font-size:34px;pointer-events:none;z-index:25;animation:fall2 3s linear forwards}
+@keyframes fall2{to{transform:translateY(115vh) rotate(360deg)}}
+.nt{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:24px}
+.nt>div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center;max-width:340px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.nt p{margin:0}
 </style>
 </head>
 <body>
@@ -85,18 +105,21 @@ nav button{font-size:18px}nav button span{font-size:11px}
 <section class="view on" id="v-tap">
 <button id="ham" aria-label="Тап">
 <svg viewBox="0 0 200 200" aria-hidden="true">
-<circle cx="52" cy="48" r="26" fill="#d98b3a"/><circle cx="52" cy="48" r="13" fill="#ffb3b8"/>
-<circle cx="148" cy="48" r="26" fill="#d98b3a"/><circle cx="148" cy="48" r="13" fill="#ffb3b8"/>
-<ellipse cx="100" cy="112" rx="82" ry="72" fill="#f4b860"/>
-<ellipse cx="100" cy="138" rx="54" ry="38" fill="#fff1d9"/>
-<circle cx="40" cy="130" r="18" fill="#ff8fa0" opacity=".55"/><circle cx="160" cy="130" r="18" fill="#ff8fa0" opacity=".55"/>
-<circle cx="70" cy="100" r="10" fill="#2e1f0f"/><circle cx="130" cy="100" r="10" fill="#2e1f0f"/>
-<circle cx="73" cy="96" r="3.5" fill="#fff"/><circle cx="133" cy="96" r="3.5" fill="#fff"/>
-<ellipse cx="100" cy="120" rx="8" ry="6" fill="#e2677a"/>
-<path d="M88 130q12 12 24 0" stroke="#2e1f0f" stroke-width="3" fill="none" stroke-linecap="round"/>
-<rect x="94" y="132" width="12" height="12" rx="2" fill="#fff" stroke="#2e1f0f" stroke-width="2"/>
-<path d="M100 172l-20-12v26zM100 172l20-12v26z" fill="#e63946"/><circle cx="100" cy="172" r="6" fill="#c1121f"/>
-</svg>
+<path class="tail" d="M140 172C182 174 194 128 172 106" fill="none" stroke="#e8893a" stroke-width="16" stroke-linecap="round"/>
+<g class="bd"><path d="M100 98C62 98 52 150 56 176C58 190 142 190 144 176C148 150 138 98 100 98Z" fill="#f4a259"/><ellipse cx="100" cy="158" rx="26" ry="28" fill="#fff1d9"/><path d="M62 130h12M60 146h12M138 130h-12M140 146h-12" stroke="#d9772b" stroke-width="5" stroke-linecap="round"/></g>
+<ellipse class="pw" cx="80" cy="184" rx="15" ry="10" fill="#fff1d9"/><ellipse class="pw" cx="120" cy="184" rx="15" ry="10" fill="#fff1d9"/>
+<g class="hd">
+<path d="M52 62L56 14L90 40Z" fill="#e8893a"/><path d="M60 54L62 28L80 42Z" fill="#ffb3b8"/>
+<path d="M148 62L144 14L110 40Z" fill="#e8893a"/><path d="M140 54L138 28L120 42Z" fill="#ffb3b8"/>
+<ellipse cx="100" cy="72" rx="54" ry="46" fill="#f4a259"/>
+<path d="M100 30v14M86 33l3 12M114 33l-3 12" stroke="#d9772b" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="100" cy="88" rx="24" ry="17" fill="#fff1d9"/>
+<g class="ey"><ellipse cx="78" cy="66" rx="10" ry="12" fill="#8bd450"/><ellipse cx="122" cy="66" rx="10" ry="12" fill="#8bd450"/><ellipse cx="78" cy="66" rx="4" ry="9" fill="#2e1f0f"/><ellipse cx="122" cy="66" rx="4" ry="9" fill="#2e1f0f"/><circle cx="81" cy="62" r="2.5" fill="#fff"/><circle cx="125" cy="62" r="2.5" fill="#fff"/></g>
+<path d="M94 78h12l-6 7z" fill="#e2677a"/>
+<path d="M100 85v3M100 88q-6 6-12 1M100 88q6 6 12 1" stroke="#2e1f0f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M74 86l-28-4M74 92l-28 4M126 86l28-4M126 92l28 4" stroke="#2e1f0f" stroke-width="2" stroke-linecap="round"/>
+<path d="M100 120l-16-9v20zM100 120l16-9v20z" fill="#e63946"/><circle cx="100" cy="120" r="5" fill="#c1121f"/>
+</g></svg>
 </button>
 <div id="en">⚡ <span id="env"></span><div class="bar" style="margin-top:6px"><i id="enb"></i></div></div>
 </section>
@@ -107,7 +130,7 @@ nav button{font-size:18px}nav button span{font-size:11px}
 <section class="view" id="v-me"><div id="pf"></div></section>
 </main>
 <nav>
-<button class="on" data-v="tap">🐹<span>Тап</span></button>
+<button class="on" data-v="tap">🐱<span>Тап</span></button>
 <button data-v="mine">⛏️<span>Шахта</span></button>
 <button data-v="boost">🚀<span>Бусты</span></button>
 <button data-v="games">🎮<span>Игры</span></button>
@@ -132,7 +155,8 @@ const LN=['Бронза','Серебро','Золото','Платина','Ал�
 const R=[500,1000,2500,5000,15000,25000,100000];
 const B=[['mt','👆','Мультитап','+1 монета за тап',l=>1000*2**l],['el','🔋','Лимит энергии','+500 к запасу',l=>1000*2**l],['rg','⚡','Скорость заряда','+1 энергия в секунду',l=>2000*2**l]];
 const K='hamster-tycoon-v1';
-let S={bal:0,tot:0,energy:1000,mt:0,el:0,rg:0,cards:{},fe:3,feDay:'',streak:0,lastDay:'',t:Date.now(),t0:Date.now(),cd:{},bn:0,bm:0,pid:'',tok:'',nm:'',av:'',reg:false};
+let S={bal:0,tot:0,energy:1000,mt:0,el:0,rg:0,cards:{},fe:3,feDay:'',streak:0,lastDay:'',t:Date.now(),t0:Date.now(),cd:{},bn:0,bm:0,pid:'',tok:'',nm:'',av:'',reg:false,ed:0,wipe:-1,mid:-1};
+const D0=JSON.stringify(S);
 try{const r=localStorage.getItem(K);if(r)Object.assign(S,JSON.parse(r))}catch(e){}
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
 const f=n=>{n=Math.floor(n);if(n<1e6)return n.toLocaleString('ru-RU');const u=['','K','M','B','T'];let i=0;while(n>=1000&&i<4){n/=1000;i++}return(n<10?n.toFixed(2):n<100?n.toFixed(1):Math.floor(n))+u[i]};
@@ -150,16 +174,18 @@ const nd=()=>{const y=new Date(Date.now()-864e5).toDateString();return S.lastDay
 let cat=0;
 function tick(){
 const n=Date.now(),dt=Math.min(Math.max((n-S.t)/1000,0),10800),g=pph()/3600*dt;
-S.t=n;add(g);S.energy=Math.min(mx(),S.energy+rg()*dt);
+S.t=n;add(g);
+if(S.ed){if(n-S.ed>=6e5){S.energy=mx();S.ed=0;toast('⚡ Энергия восстановлена')}}else S.energy=Math.min(mx(),S.energy+rg()*dt);
 if(S.feDay!==today()){S.feDay=today();S.fe=3}
 return[dt,g]}
+const mmss=ms=>{const t=Math.max(0,Math.ceil(ms/1000));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
 function upd(){
 const i=lvl();
 $('balv').textContent=f(S.bal);
 $('pph').textContent=f(pph());
 $('rank').textContent=LN[i]+' '+(i+1)+'/10';
 $('lvb').style.width=(i<9?(S.tot-LV[i])/(LV[i+1]-LV[i])*100:100)+'%';
-$('env').textContent=f(S.energy)+' / '+f(mx());
+$('env').textContent=f(S.energy)+' / '+f(mx())+(S.ed?' ⏳ '+mmss(6e5-(Date.now()-S.ed)):'');
 $('enb').style.width=S.energy/mx()*100+'%'}
 function aff(){document.querySelectorAll('[data-p]').forEach(e=>e.classList.toggle('off',S.bal<+e.dataset.p))}
 function renderMine(){
@@ -177,7 +203,7 @@ if(S.bal<p)return toast('Не хватает монет');
 S.bal-=p;S.cards[id]=lv(id)+1;vib(15);renderMine();upd();save()}
 function boost(k){
 if(k==='daily'){if(S.lastDay===today())return;const n=nd(),r=R[(n-1)%7];S.streak=n;S.lastDay=today();add(r);toast('🎁 Награда: +'+f(r))}
-else if(k==='fe'){if(!S.fe)return toast('На сегодня зарядки закончились');S.fe--;S.energy=mx();toast('🔥 Энергия полная')}
+else if(k==='fe'){if(!S.fe)return toast('На сегодня зарядки закончились');S.fe--;S.energy=mx();S.ed=0;toast('🔥 Энергия полная')}
 else{const b=B.find(x=>x[0]===k),p=b[4](S[k]);if(S.bal<p)return toast('Не хватает монет');S.bal-=p;S[k]++;toast(b[2]+': уровень '+S[k])}
 vib(15);renderBoosts();upd();save()}
 function go(v){
@@ -192,7 +218,7 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.v)
 $('v-mine').onclick=e=>{const b=e.target.closest('[data-c],[data-id]');if(!b)return;if(b.dataset.id)buy(b.dataset.id);else{cat=+b.dataset.c;renderMine()}};
 $('boosts').onclick=e=>{const b=e.target.closest('[data-b]');if(b)boost(b.dataset.b)};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const BOTS=[['Хомяк Босс',400000,3500],['Крипто Кот',150000,1800],['Сэр Орех',60000,900],['Банкир Бобёр',25000,500],['Леди Семечка',12000,260],['Барсук Биткоин',7000,150],['Енот Инвестор',4000,80],['Тихий Суслик',1500,30]];
+const BOTS=[['Кот Босс',400000,3500],['Крипто Кот',150000,1800],['Сэр Орех',60000,900],['Банкир Бобёр',25000,500],['Леди Семечка',12000,260],['Барсук Биткоин',7000,150],['Енот Инвестор',4000,80],['Тихий Суслик',1500,30]];
 const pname=()=>{if(S.nm)return S.nm;try{const u=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user;if(u&&u.first_name)return u.first_name}catch(e){}return'Игрок'};
 const unit=()=>Math.round(20+pph()/200);
 const cdLeft=k=>Math.max(0,Math.ceil(((S.cd[k]||0)+3e5-Date.now())/1000));
@@ -210,7 +236,7 @@ function renderGames(){
 const G=[['nut','🌰','Орехопад','Лови орешки 20 секунд, алмаз даёт x3.'],['mem','🧠','Память','Найди все пары за минимум ходов.']];
 $('gl').innerHTML='<p class="note">Каждую игру можно проходить раз в 5 минут. Награда растёт вместе с твоей прибылью.</p>'+G.map(g=>{const c=cdLeft(g[0]);return`<button class="r2${c?' off':''}" data-g="${g[0]}"><span class="e">${g[1]}</span><span class="t"><b>${g[2]}</b><small>${c?'Доступно через '+Math.floor(c/60)+':'+String(c%60).padStart(2,'0'):g[3]}</small></span><span class="p">${c?'⏳':'Играть'}</span></button>`}).join('')}
 $('gl').onclick=e=>{const b=e.target.closest('[data-g]');if(!b)return;const k=b.dataset.g;if(cdLeft(k))return toast('Ещё рано, подожди');if(k==='nut')playNut();else playMem()};
-function ovOpen(t){$('ovt').textContent=t;$('arena').innerHTML='';$('ov').classList.add('on')}
+function ovOpen(t){$('arena').style.overflow='';$('ovt').textContent=t;$('arena').innerHTML='';$('ov').classList.add('on')}
 function ovClose(){if(stop){stop();stop=null}$('ov').classList.remove('on');$('arena').innerHTML='';renderGames();upd()}
 $('ovx').onclick=ovClose;
 function finish(k,reward,line){
@@ -257,10 +283,10 @@ const SB_URL='https://nuglhtpjzjfaafspmhln.supabase.co',SB_KEY='sb_publishable_o
 const online=()=>!!(SB_URL&&SB_KEY);
 const rid=()=>{try{return crypto.randomUUID().replace(/-/g,'')}catch(e){return Math.random().toString(36).slice(2)+Date.now().toString(36)}};
 if(!S.pid){S.pid=rid();S.tok=rid()+rid()}
-if(!S.av)S.av='🐹';
+if(!S.av)S.av='🐱';
 let sy=0;
-const EM=['🐹','🐭','🦊','🐱','🐸','🦁','🐼','🦄'];
-const av=(a,s)=>{s=s||36;a=String(a||'🐹');return a.indexOf('data:image/jpeg;base64,')===0?`<img src="${esc(a)}" width="${s}" height="${s}" style="border-radius:50%;object-fit:cover;flex:none" alt="">`:`<span style="width:${s}px;height:${s}px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:${Math.round(s*.55)}px;flex:none">${esc(a.slice(0,8))}</span>`};
+const EM=['🐱','🐭','🦊','🐹','🐸','🦁','🐼','🦄'];
+const av=(a,s)=>{s=s||36;a=String(a||'🐱');return a.indexOf('data:image/jpeg;base64,')===0?`<img src="${esc(a)}" width="${s}" height="${s}" style="border-radius:50%;object-fit:cover;flex:none" alt="">`:`<span style="width:${s}px;height:${s}px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:${Math.round(s*.55)}px;flex:none">${esc(a.slice(0,8))}</span>`};
 async function sb(path,opt){
 const h={apikey:SB_KEY,'Content-Type':'application/json'};
 if(SB_KEY.indexOf('eyJ')===0)h.Authorization='Bearer '+SB_KEY;
@@ -291,13 +317,14 @@ $('pf').innerHTML=`<div style="display:flex;justify-content:center;margin:6px 0 
 <input id="pnm" maxlength="20" value="${esc(pname())}" style="width:100%;font:inherit;font-weight:800;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);user-select:text;-webkit-user-select:text">
 <button class="r2" id="psv" style="margin-top:12px;justify-content:center"><b>Сохранить профиль</b></button>
 <p class="note">${online()?'После сохранения ник, фото и число заработанных монет увидят все игроки в рейтинге.':'Онлайн-рейтинг пока не подключён, профиль хранится только на этом телефоне.'}</p>
-<h3>Статистика</h3>
+<h3 id="h3s">Статистика</h3>
 <div class="lb"><span class="nm">Всего заработано</span><span class="sc">🪙 ${f(S.tot)}</span></div>
 <div class="lb"><span class="nm">Звание</span><span class="sc">${LN[lvl()]}</span></div>
 <div class="lb"><span class="nm">Рекорд Орехопада</span><span class="sc">${S.bn}</span></div>
 <div class="lb"><span class="nm">Рекорд Памяти</span><span class="sc">${S.bm?S.bm+' ходов':'пока нет'}</span></div>`}
 const keep=()=>{const v=$('pnm');if(v){const t=v.value.trim().slice(0,20);if(t)S.nm=t}};
 $('pf').onclick=e=>{
+if(e.target.id==='h3s'){if(++ac>=7){ac=0;if(online())openAdmin();else toast('Нужен онлайн-режим')}return}
 const b=e.target.closest('button');if(!b)return;
 keep();
 if(b.dataset.e){S.av=b.dataset.e;save();renderProfile()}
@@ -313,18 +340,80 @@ c.getContext('2d').drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,64,64);
 S.av=c.toDataURL('image/jpeg',.7);save();renderProfile()};
 im.src=rd.result};
 rd.readAsDataURL(fl)};
-const ham=$('ham');
+let ac=0,AP='',sel='';
+const ago=t=>{const m=Math.round((Date.now()-new Date(t))/6e4);return m<1?'сейчас':m<60?m+' мин назад':m<1440?Math.round(m/60)+' ч назад':Math.round(m/1440)+' дн назад'};
+function rain(){for(let i=0;i<30;i++){const e=document.createElement('div');e.className='rn';e.textContent='🐱';e.style.left=Math.random()*92+'vw';e.style.animationDelay=Math.random()*2+'s';e.onanimationend=()=>e.remove();document.body.appendChild(e)}}
+function notice(t,fx){const d=document.createElement('div');d.className='nt';d.innerHTML='<div><b>📢 Сообщение от админа</b><p>'+esc(t)+'</p><button class="chip on">Ок</button></div>';d.querySelector('button').onclick=()=>d.remove();document.body.appendChild(d);if(fx==='rain')rain()}
+function wipeLocal(id){
+const keep={};['pid','tok','nm','av','reg'].forEach(k=>keep[k]=S[k]);
+S=Object.assign(JSON.parse(D0),keep,{wipe:id,mid:S.mid,t:Date.now(),t0:Date.now()});
+save();renderMine();upd();notice('Вайп! Все начинают игру заново.');
+sb('rpc/reset_me',{method:'POST',body:JSON.stringify({p_id:S.pid,p_token:S.tok})}).catch(()=>{}).then(()=>syncNow())}
+async function poll(){
+if(!online())return;
+try{
+const c=await sb('rpc/get_cfg',{method:'POST',body:'{}'});
+if(c){
+if(S.wipe<0)S.wipe=c.wipe_id;else if(c.wipe_id>S.wipe)wipeLocal(c.wipe_id);
+if(S.mid<0)S.mid=c.msg_id;else if(c.msg_id>S.mid){S.mid=c.msg_id;if(c.msg)notice(c.msg,c.fx)}
+save()}
+if(S.reg){
+const g=await sb('rpc/get_inbox',{method:'POST',body:JSON.stringify({p_id:S.pid,p_token:S.tok})});
+(g||[]).forEach(x=>{const a=+x.amount||0,p=[];
+if(a){S.bal=Math.max(0,S.bal+a);S.tot=Math.max(0,S.tot+a);p.push(a>0?'Тебе начислено +'+f(a)+' 🪙':'У тебя списано '+f(-a)+' 🪙')}
+if(x.msg)p.push(x.msg);
+notice(p.join('. ')||'Привет!',x.fx)});
+if(g&&g.length){upd();save()}}
+}catch(e){}}
+setTimeout(poll,1500);
+async function ar(fn,args){return sb('rpc/'+fn,{method:'POST',body:JSON.stringify(Object.assign({p_pass:AP},args||{}))})}
+function openAdmin(){
+ovOpen('🔧 Админ');
+const a=$('arena');a.style.overflow='auto';
+a.innerHTML='<div style="padding:16px"><div class="note">Пароль админа</div><input id="apw" type="password" class="inp"><button class="r2" id="ago" style="margin-top:10px;justify-content:center"><b>Войти</b></button></div>';
+$('ago').onclick=async()=>{AP=$('apw').value;try{await ar('admin_list');panel()}catch(e){AP='';toast('Неверный пароль или нет связи')}}}
+async function panel(){
+let L;try{L=await ar('admin_list')}catch(e){toast('Ошибка загрузки');return}
+$('arena').innerHTML=`<div style="padding:12px">
+<div class="note">Игроки: ${L.length}. Нажми на игрока, чтобы выбрать.</div>
+${L.map(p=>`<button class="lb${p.id===sel?' me':''}" data-id="${esc(p.id)}" style="width:100%;text-align:left">${av(p.avatar,30)}<span class="nm">${esc(p.name)}</span><span class="sc">🪙 ${f(p.score)}<br><small>${ago(p.updated_at)}</small></span></button>`).join('')}
+<h3>Выбранный игрок</h3>
+<input id="amt" class="inp" type="number" placeholder="Монеты (можно с минусом)">
+<input id="pmsg" class="inp" placeholder="Сообщение игроку (необязательно)">
+<div class="arow"><button class="chip on" data-a="give">Отправить</button><button class="chip" data-a="rain">🐱 Дождь</button></div>
+<input id="pnn" class="inp" placeholder="Новый ник игроку">
+<div class="arow"><button class="chip on" data-a="name">Сменить ник</button><button class="chip" data-a="unname">Вернуть ник</button></div>
+<h3>Всем игрокам</h3>
+<input id="bmsg" class="inp" placeholder="Сообщение всем">
+<div class="arow"><button class="chip on" data-a="bc">Отправить</button><button class="chip" data-a="bcr">🐱 С дождём</button></div>
+<button class="r2" data-a="wipe" style="margin-top:14px;justify-content:center"><b>💥 Вайп всех</b></button></div>`}
+$('arena').onclick=async e=>{
+if(!AP||$('ovt').textContent.indexOf('Админ')<0)return;
+const b=e.target.closest('[data-a],[data-id]');if(!b)return;
+if(b.dataset.id){sel=b.dataset.id;return panel()}
+const k=b.dataset.a,v=i=>$(i).value.trim();
+try{
+if(k==='give'||k==='rain'){if(!sel)return toast('Выбери игрока');await ar('admin_give',{p_id:sel,p_amount:Math.trunc(+v('amt')||0),p_msg:v('pmsg'),p_fx:k==='rain'?'rain':''});toast('Отправлено')}
+else if(k==='name'||k==='unname'){if(!sel)return toast('Выбери игрока');await ar('admin_rename',{p_id:sel,p_name:k==='name'?v('pnn'):''});toast('Готово')}
+else if(k==='bc'||k==='bcr'){await ar('admin_broadcast',{p_msg:v('bmsg'),p_fx:k==='bcr'?'rain':''});toast('Отправлено всем')}
+else if(k==='wipe'){
+if(b.dataset.s!=='1'){b.dataset.s='1';b.firstChild.textContent='Точно? Нажми ещё раз';setTimeout(()=>{b.dataset.s='';b.firstChild.textContent='💥 Вайп всех'},4000);return}
+await ar('admin_wipe');toast('Вайп выполнен')}
+panel()
+}catch(err){toast('Ошибка: '+err.message)}};
+const ham=$('ham');let ht;
+function hit(){ham.classList.remove('hit');void ham.offsetWidth;ham.classList.add('hit');clearTimeout(ht);ht=setTimeout(()=>ham.classList.remove('hit'),180)}
 ham.oncontextmenu=e=>e.preventDefault();
 ham.addEventListener('pointerdown',e=>{
 e.preventDefault();
 const v=tv();
-if(S.energy<v)return toast('Нет энергии, подожди или зарядись во вкладке «Бусты»');
-S.energy-=v;add(v);
+if(S.energy<v){if(!S.ed)S.ed=Date.now();return toast('Энергия закончилась, восстановится через '+mmss(6e5-(Date.now()-S.ed)))}
+S.energy-=v;add(v);if(S.energy<tv())S.ed=Date.now();
 const r=ham.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;
 ham.style.transform=`perspective(600px) rotateX(${-dy*20}deg) rotateY(${dx*20}deg) scale(.95)`;
 const n=document.createElement('div');n.className='fl';n.textContent='+'+v;n.style.left=e.clientX+'px';n.style.top=(e.clientY-30)+'px';
 document.body.appendChild(n);n.onanimationend=()=>n.remove();
-vib(6);upd()});
+vib(6);hit();upd()});
 ['pointerup','pointercancel','pointerleave'].forEach(t=>ham.addEventListener(t,()=>{ham.style.transform=''}));
 document.addEventListener('gesturestart',e=>e.preventDefault());
 document.addEventListener('visibilitychange',()=>{if(document.hidden)save()});
@@ -333,7 +422,7 @@ if(tg){try{tg.ready();tg.expand();if(tg.disableVerticalSwipes)tg.disableVertical
 const[dt,g]=tick();
 upd();
 if(dt>60&&g>=1)toast('💤 Пока тебя не было: +'+f(g));
-setInterval(()=>{tick();upd();aff();save();if($('v-games').classList.contains('on')&&(cdLeft('nut')||cdLeft('mem')))renderGames();if($('v-top').classList.contains('on')&&tk++%15===0)renderTop();if(++sy%30===0)syncNow()},1000);
+setInterval(()=>{tick();upd();aff();save();if($('v-games').classList.contains('on')&&(cdLeft('nut')||cdLeft('mem')))renderGames();if($('v-top').classList.contains('on')&&tk++%15===0)renderTop();if(++sy%30===0){syncNow();poll()}},1000);
 })();
 </script>
 </body>
